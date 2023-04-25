@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Link from "next/link";
 import moment from "moment";
 import classNames from "classnames";
 import { POINTS_URL, AUTHOR_URL } from "@/utils/constants";
@@ -19,26 +20,39 @@ interface INewsCard {
 
 const NewsCards: FC<INewsCard> = (props: INewsCard) => {
   const { hits } = props;
+
   return (
     <>
       {hits?.map((el: IHits) => {
+        const {
+          objectID,
+          title,
+          url,
+          points,
+          author,
+          created_at,
+          num_comments,
+        } = el;
         return (
-          <div key={el?.objectID}>
+          <div className="mb-2" key={objectID}>
             <div>
               <h6
                 className={classNames({
-                  "text-red-600": !el?.title,
-                  "cursor-pointer": el?.title,
+                  "text-red-600": !title,
+                  "cursor-pointer": title,
                 })}
               >
-                {el?.title || "This article has been removed"}{" "}
-                {el?.url && (
+                <Link href={title ? `/news/${objectID}` : "#"}>
+                  {title || "This article has been removed"}{" "}
+                </Link>
+
+                {url && (
                   <a
                     target="_blanc"
                     className="text-gray-600 hover:underline"
-                    href={el?.url}
+                    href={url}
                   >
-                    ({el?.url})
+                    ({url})
                   </a>
                 )}
               </h6>
@@ -46,32 +60,30 @@ const NewsCards: FC<INewsCard> = (props: INewsCard) => {
                 <a
                   target="_blanc"
                   className="text-gray-600 hover:underline text-xs"
-                  href={POINTS_URL + el?.objectID}
+                  href={POINTS_URL + objectID}
                 >
-                  {el?.points} |{" "}
+                  {points} |{" "}
                 </a>
                 <a
                   target="_blanc"
                   className="text-gray-600 hover:underline text-xs"
-                  href={AUTHOR_URL + el?.author}
+                  href={AUTHOR_URL + author}
                 >
-                  {el?.author} |{" "}
+                  {author} |{" "}
                 </a>
                 <a
                   target="_blanc"
                   className="text-gray-600 hover:underline text-xs"
-                  href={POINTS_URL + el?.objectID}
+                  href={POINTS_URL + objectID}
                 >
-                  {el?.created_at &&
-                    moment(el?.created_at, "YYYYMMDD").fromNow()}{" "}
-                  |{" "}
+                  {created_at && moment(created_at, "YYYYMMDD").fromNow()} |{" "}
                 </a>
                 <a
                   target="_blanc"
                   className="text-gray-600 hover:underline text-xs"
-                  href={POINTS_URL + el?.objectID}
+                  href={POINTS_URL + objectID}
                 >
-                  {el?.num_comments} comments
+                  {num_comments} comments
                 </a>
               </p>
             </div>
