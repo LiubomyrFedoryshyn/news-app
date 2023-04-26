@@ -22,7 +22,7 @@ interface IMain {
 const NewsMain: FC<IMain> = (props: IMain) => {
   const { news, objectID } = props;
   const { title, author, points, created_at } = news;
-  const [activeNews, setActiveNews] = useState<any>({}); // current active news
+  const [activeNews, setActiveNews] = useState<ILocNews>(); // current active news
 
   useEffect(() => {
     const locNews = JSON.parse(localStorage.getItem("locNews") || "[]"); // get and set items from localstorage

@@ -22,7 +22,7 @@ interface INewsCard {
 
 const NewsCards: FC<INewsCard> = (props: INewsCard) => {
   const { hits } = props;
-  const [activeNews, setActiveNews] = useState<any>([]); // current active news
+  const [activeNews, setActiveNews] = useState<ILocNews[]>([]); // current active news
 
   useEffect(() => {
     const locNews = JSON.parse(localStorage.getItem("locNews") || "[]"); // get and set items from localstorage
@@ -65,7 +65,8 @@ const NewsCards: FC<INewsCard> = (props: INewsCard) => {
                 )}
                 <Rate
                   news={
-                    activeNews.find((el: ILocNews) => el?.id === objectID) || {}
+                    activeNews &&
+                    activeNews.find((el: ILocNews) => el?.id === objectID)
                   }
                 />
               </h6>

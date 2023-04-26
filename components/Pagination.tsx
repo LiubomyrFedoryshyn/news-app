@@ -85,8 +85,7 @@ export const Pagination: FC<IPagination> = (props: IPagination) => {
                 </span>
               );
             }
-
-            // Render our Page Pills
+            // Render Page numbers
             return (
               <span
                 key={i}
