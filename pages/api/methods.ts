@@ -13,5 +13,5 @@ export const searchNews = (
 };
 
 export const getDetails = (id?: string) => {
-  return Request(id ? `http://hn.algolia.com/api/v1/items/${id}` : null);
+  return Request(id ? `https://hn.algolia.com/api/v1/items/${id}` : null);
 };
