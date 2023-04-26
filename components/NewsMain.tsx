@@ -31,6 +31,7 @@ const NewsMain: FC<IMain> = (props: IMain) => {
   }, []);
 
   const addToStorage = (type: string) => {
+    // had to do "rate" functionality in localstorage because I don't want to spend much time on fireBase setup or any other one, besides, in real case it should be same API so logicaly it hasn't make sence
     const parsedArr = JSON.parse(localStorage.getItem("locNews") || "[]");
     let currentArr = "[]";
     let myObj = parsedArr.find((el: ILocNews) => el.id === objectID) || {};
