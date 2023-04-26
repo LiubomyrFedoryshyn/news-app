@@ -1,8 +1,10 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import moment from "moment";
 import classNames from "classnames";
 import { POINTS_URL, AUTHOR_URL } from "@/utils/constants";
+import { Rate } from "./Rate";
+import { ILocNews } from "@/utils/interfaces";
 
 interface IHits {
   objectID: string;
@@ -20,6 +22,12 @@ interface INewsCard {
 
 const NewsCards: FC<INewsCard> = (props: INewsCard) => {
   const { hits } = props;
+  const [activeNews, setActiveNews] = useState<any>([]); // current active news
+
+  useEffect(() => {
+    const locNews = JSON.parse(localStorage.getItem("locNews") || "[]"); // get and set items from localstorage
+    setActiveNews(locNews);
+  }, []);
 
   return (
     <>
@@ -49,12 +57,17 @@ const NewsCards: FC<INewsCard> = (props: INewsCard) => {
                 {url && (
                   <a
                     target="_blanc"
-                    className="text-gray-600 hover:underline"
+                    className="text-gray-600 hover:underline text-sm mr-2"
                     href={url}
                   >
                     ({url})
                   </a>
                 )}
+                <Rate
+                  news={
+                    activeNews.find((el: ILocNews) => el?.id === objectID) || {}
+                  }
+                />
               </h6>
               <p>
                 <a

@@ -11,9 +11,9 @@ export const Rate: FC<IRate> = (props: IRate) => {
   const uniCode = () => {
     switch (news?.type) {
       case "disliked":
-        return <span className="text-red-600 ml-2">&#x2613;</span>;
+        return <span className="text-red-600 text-2xl">&#x2613;</span>;
       case "favorites":
-        return <span className="text-yellow-600 ml-2">&#x2605;</span>;
+        return <span className="text-yellow-600 text-4xl">&#x2605;</span>;
       default:
         return null;
     }

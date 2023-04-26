@@ -56,9 +56,9 @@ const NewsMain: FC<IMain> = (props: IMain) => {
   };
 
   return (
-    <div className="mb-2" key={objectID}>
+    <div className="mb-2 font-mono" key={objectID}>
       <div>
-        <h6 className="flex">
+        <h6>
           {title} {objectID && <Rate news={activeNews} />}
         </h6>
         <p>

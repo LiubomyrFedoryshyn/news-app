@@ -22,7 +22,7 @@ export default function Home() {
   return isLoading ? (
     <Loader />
   ) : (
-    <div className="z-10 w-full max-w-7xl items-center justify-between font-mono text-sm">
+    <div className="z-10 w-full max-w-7xl items-center justify-between font-mono">
       <NewsCards hits={data?.hits} />
       <Pagination
         className="pagination-bar"
