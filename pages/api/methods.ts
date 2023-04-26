@@ -7,7 +7,7 @@ export const searchNews = (
   repeatInterval?: number
 ) => {
   return Request(
-    `http://hn.algolia.com/api/v1/search?query=${query}&hitsPerPage=${pagNum}&page=${page}`,
+    `https://hn.algolia.com/api/v1/search?query=${query}&hitsPerPage=${pagNum}&page=${page}`,
     repeatInterval
   );
 };
