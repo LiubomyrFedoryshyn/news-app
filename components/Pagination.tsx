@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { IUsePagination } from "@/utils/interfaces";
-import { UsePagination } from "./UsePagination";
+import { usePagination } from "../utils/actions/usePagination";
 import classNames from "classnames";
 import { DOTS } from "@/utils/constants";
 
@@ -12,7 +12,7 @@ interface IPagination extends IUsePagination {
 export const Pagination: FC<IPagination> = (props: IPagination) => {
   const { onPageChange, results, siblingCount = 1, page, pageNum } = props;
 
-  const paginationRange = UsePagination({
+  const paginationRange = usePagination({
     page,
     results,
     siblingCount,

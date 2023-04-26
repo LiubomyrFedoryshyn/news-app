@@ -2,19 +2,17 @@ import { DOTS } from "@/utils/constants";
 import { IUsePagination } from "@/utils/interfaces";
 import { FC, useMemo } from "react";
 
-export const UsePagination = (props: IUsePagination) => {
+export const usePagination = (props: IUsePagination) => {
   const { results, pageNum, page, siblingCount } = props;
 
   const range = (start: number, end: number) => {
     let length = end - start + 1;
-    /*
-        Create an array of certain length and set the elements within it from
-      start value to end value.
-    */
+    //Array of certain length and set the elements within it from start value to end value.
     return Array.from({ length }, (_, idx) => idx + start);
   };
 
   const paginationRange = useMemo(() => {
+    // we need to memorise our calculations
     const totalPageCount = Math.ceil(results / pageNum);
 
     const totalPageNumbers = siblingCount + 5;

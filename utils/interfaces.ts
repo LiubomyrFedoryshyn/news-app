@@ -4,3 +4,8 @@ export interface IUsePagination {
   page: number | string;
   siblingCount: number;
 }
+
+export interface ILocNews {
+  id: string;
+  type: string;
+}

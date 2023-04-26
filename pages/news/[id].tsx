@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { getDetails } from "../api/methods";
-import NewsMain from "@/components/NewsMain";
 import { Loader } from "@/components/Loader";
+import NewsMain from "@/components/NewsMain";
 
-const Post = () => {
+const News = () => {
   const { query } = useRouter();
   const { id }: { id?: string } = query;
   const { data = {}, isLoading } = getDetails(id);
-  return isLoading ? <Loader /> : <NewsMain news={data} />;
+  return isLoading ? <Loader /> : <NewsMain news={data} objectID={id} />;
 };
 
-export default Post;
+export default News;
