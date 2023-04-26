@@ -8,7 +8,7 @@ import { NEWS_API_LIMIT, NEWS_API_INTERVAL } from "@/utils/constants";
 export default function Home() {
   const [pageNum, setPageNum] = useState<number>(10); // for expanded pagination in future
   const [page, setPage] = useState<number | string>(1);
-  const [siblingCount, setSiblingCount] = useState<number>(2); // for expanded pagination in future
+  const [siblingCount, setSiblingCount] = useState<number>(1); // for expanded pagination in future
   const [query, setQuery] = useState<string>(""); // for search implementation in future
   const [actualPage, setActualPage] = useState<number>(0); // actual page calculation because API page lists starts with "0"
 

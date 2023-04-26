@@ -36,7 +36,7 @@ export const Pagination: FC<IPagination> = (props: IPagination) => {
   const currentNews = Number(page) * pageNum;
 
   return (
-    <div className="flex items-center justify-between border-t border-gray-200 px-4 py-3 sm:px-6">
+    <div className="flex flex-wrap items-center justify-between border-t border-gray-200 py-3">
       <div>
         <p className="text-sm text-gray-700">
           Showing{" "}
@@ -52,7 +52,7 @@ export const Pagination: FC<IPagination> = (props: IPagination) => {
         >
           <span
             className={classNames(
-              "pagination-item relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0",
+              "pagination-item relative inline-flex items-center px-2 py-1 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0",
               {
                 "pointer-events-none": page === 1,
               }
@@ -79,7 +79,7 @@ export const Pagination: FC<IPagination> = (props: IPagination) => {
               return (
                 <span
                   key={i}
-                  className="pointer-events-none pagination-item relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0"
+                  className="pointer-events-none pagination-item relative inline-flex items-center px-3 py-1 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0"
                 >
                   &#8230;
                 </span>
@@ -105,7 +105,7 @@ export const Pagination: FC<IPagination> = (props: IPagination) => {
           {/*  Right Navigation arrow */}
           <span
             className={classNames(
-              "pagination-item relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0",
+              "pagination-item relative inline-flex items-center px-2 py-1 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0",
               {
                 "pointer-events-none": page === lastPage,
               }

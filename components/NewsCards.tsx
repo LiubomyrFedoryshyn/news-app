@@ -57,7 +57,7 @@ const NewsCards: FC<INewsCard> = (props: INewsCard) => {
                 {url && (
                   <a
                     target="_blanc"
-                    className="text-gray-600 hover:underline text-sm mr-2"
+                    className="text-gray-600 hover:underline text-sm mr-2 break-all"
                     href={url}
                   >
                     ({url})
@@ -80,7 +80,7 @@ const NewsCards: FC<INewsCard> = (props: INewsCard) => {
                 </a>
                 <a
                   target="_blanc"
-                  className="text-gray-600 hover:underline text-xs"
+                  className="text-gray-600 hover:underline text-xs "
                   href={AUTHOR_URL + author}
                 >
                   {author} |{" "}
