@@ -1,6 +1,6 @@
 export const Loader = () => {
   return (
-    <div role="status">
+    <div className="status h-full flex flex-col flex-1 justify-center">
       <svg
         aria-hidden="true"
         className="inline w-10 h-10 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600"
