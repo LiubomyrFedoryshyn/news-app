@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { searchNews } from "./api/methods";
-import NewsCards from "@/components/NewsCards";
+import NewsCards from "../components/NewsCards";
 import { Pagination } from "@/components/Pagination";
 import { Loader } from "@/components/Loader";
-import { NEWS_API_LIMIT } from "@/utils/constants";
+import { NEWS_API_LIMIT, NEWS_API_INTERVAL } from "@/utils/constants";
 
 export default function Home() {
   const [pageNum, setPageNum] = useState(10);
@@ -12,7 +12,12 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [actualPage, setActualPage] = useState<number>(0);
 
-  const { data, isLoading } = searchNews(query, pageNum, actualPage);
+  const { data, isLoading } = searchNews(
+    query,
+    pageNum,
+    actualPage,
+    NEWS_API_INTERVAL
+  );
 
   return isLoading ? (
     <Loader />

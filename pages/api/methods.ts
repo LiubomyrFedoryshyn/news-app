@@ -1,8 +1,14 @@
 import { Request } from "./request";
 
-export const searchNews = (query: string, pagNum: number, page: number) => {
+export const searchNews = (
+  query: string,
+  pagNum: number,
+  page: number,
+  repeatInterval?: number
+) => {
   return Request(
-    `http://hn.algolia.com/api/v1/search?query=${query}&hitsPerPage=${pagNum}&page=${page}`
+    `http://hn.algolia.com/api/v1/search?query=${query}&hitsPerPage=${pagNum}&page=${page}`,
+    repeatInterval
   );
 };
 
