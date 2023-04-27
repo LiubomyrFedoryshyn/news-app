@@ -4,21 +4,7 @@ import moment from "moment";
 import classNames from "classnames";
 import { POINTS_URL, AUTHOR_URL } from "@/utils/constants";
 import { Rate } from "./Rate";
-import { ILocNews } from "@/utils/interfaces";
-
-interface IHits {
-  objectID: string;
-  title: string;
-  url: string;
-  points: number;
-  author: string;
-  created_at: string;
-  num_comments: number;
-}
-
-interface INewsCard {
-  hits: Array<IHits>;
-}
+import { ILocNews, INewsCard, IHits } from "@/utils/interfaces";
 
 const NewsCards: FC<INewsCard> = (props: INewsCard) => {
   const { hits } = props;

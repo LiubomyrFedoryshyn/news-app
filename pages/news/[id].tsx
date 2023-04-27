@@ -1,7 +1,15 @@
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import { getDetails } from "../api/methods";
-import { Loader } from "@/components/Loader";
-import NewsMain from "@/components/NewsMain";
+import { IMain } from "@/utils/interfaces";
+
+const Loader = dynamic<{}>(() =>
+  import("../../components/Loader").then((mod) => mod.Loader)
+);
+
+const NewsMain = dynamic<IMain>(() =>
+  import("../../components/NewsMain").then((mod) => mod.default)
+);
 
 const News = () => {
   const { query } = useRouter();

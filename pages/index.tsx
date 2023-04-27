@@ -1,9 +1,16 @@
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { searchNews } from "./api/methods";
-import NewsCards from "../components/NewsCards";
 import { Pagination } from "@/components/Pagination";
-import { Loader } from "@/components/Loader";
 import { NEWS_API_LIMIT, NEWS_API_INTERVAL } from "@/utils/constants";
+import { INewsCard } from "@/utils/interfaces";
+
+const Loader = dynamic<{}>(() =>
+  import("../components/Loader").then((mod) => mod.Loader)
+);
+const NewsCards = dynamic<INewsCard>(() =>
+  import("../components/NewsCards").then((mod) => mod.default)
+);
 
 export default function Home() {
   const [pageNum, setPageNum] = useState<number>(10); // for expanded pagination in future

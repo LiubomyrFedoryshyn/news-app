@@ -4,20 +4,7 @@ import classNames from "classnames";
 import { AUTHOR_URL, POINTS_URL } from "@/utils/constants";
 import { Rate } from "./Rate";
 import { isObjectEmpty } from "@/utils/actions/isObjectEmpty";
-import { ILocNews } from "@/utils/interfaces";
-
-interface INews {
-  objectID: string;
-  title: string;
-  author: string;
-  points: number;
-  created_at: string;
-}
-
-interface IMain {
-  news: INews;
-  objectID?: string;
-}
+import { ILocNews, IMain } from "@/utils/interfaces";
 
 const NewsMain: FC<IMain> = (props: IMain) => {
   const { news, objectID } = props;
